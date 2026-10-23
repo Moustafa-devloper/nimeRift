@@ -1,57 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/card_bg"
-    android:orientation="vertical"
-    android:padding="14dp">
-
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/text_primary"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/genreText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/purple_accent_soft"
-            android:textSize="14sp" />
-
-        <Button
-            android:id="@+id/favoriteButton"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:background="@android:color/transparent"
-            android:text="♡"
-            android:textColor="@color/purple_accent_soft"
-            android:textSize="22sp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/descriptionText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/text_secondary"
-        android:textSize="14sp" />
-
-    <Button
-        android:id="@+id/playButton"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/purple_accent"
-        android:text="@string/play"
-        android:textColor="@color/text_primary" />
-</LinearLayout>
+<resources>
+    <color name="bg_primary">#09090F</color>
+    <color name="bg_secondary">#151522</color>
+    <color name="surface">#201A2F</color>
+    <color name="surface_soft">#2A213D</color>
+    <color name="purple_accent">#A855F7</color>
+    <color name="purple_accent_soft">#D8B4FE</color>
+    <color name="text_primary">#F3F4F6</color>
+    <color name="text_secondary">#B9B4C6</color>
+    <color name="text_muted">#8C879A</color>
+    <color name="success">#34D399</color>
+    <color name="warning">#FBBF24</color>
+    <color name="error">#F87171</color>
+    <color name="ic_launcher_background">#120F1D</color>
+</resources>

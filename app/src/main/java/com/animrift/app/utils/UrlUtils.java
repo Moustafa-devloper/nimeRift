@@ -1,7 +1,6 @@
 package com.animrift.app.player;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -36,7 +35,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
     private final Runnable progressRunnable = new Runnable() {
         @Override
         public void run() {
-            if (videoView.isPlaying()) {
+            if (videoView != null && videoView.isPlaying()) {
                 int current = videoView.getCurrentPosition();
                 seekBar.setProgress(current);
                 playbackText.setText(formatTime(current) + " / " + formatTime(videoView.getDuration()));
@@ -58,7 +57,10 @@ public class VideoPlayerActivity extends AppCompatActivity {
         openFileButton = findViewById(R.id.openFileButton);
         fullscreenButton = findViewById(R.id.fullscreenButton);
 
-        titleText.setText(getIntent().getStringExtra(EXTRA_ANIME_TITLE));
+        String title = getIntent().getStringExtra(EXTRA_ANIME_TITLE);
+        if (title != null) {
+            titleText.setText(title);
+        }
 
         openFileButton.setOnClickListener(v -> openLocalVideo());
         playPauseButton.setOnClickListener(v -> togglePlayback());
@@ -72,8 +74,13 @@ public class VideoPlayerActivity extends AppCompatActivity {
                 }
             }
 
-            @Override public void onStartTrackingTouch(SeekBar seekBar) { }
-            @Override public void onStopTrackingTouch(SeekBar seekBar) { }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
 
         String videoUrl = getIntent().getStringExtra(EXTRA_VIDEO_URL);

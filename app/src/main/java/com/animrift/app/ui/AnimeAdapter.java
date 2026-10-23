@@ -75,7 +75,7 @@ public class FavoritesHistoryStore {
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("anime_id", animeIdFor(anime));
+        values.put("anime_id", anime.getId());
         values.put("title", anime.getTitle());
         values.put("genre", anime.getGenre());
         values.put("last_position_ms", lastPositionMs);
@@ -111,10 +111,6 @@ public class FavoritesHistoryStore {
 
     public long getLastPlaybackPositionMs() {
         return prefs.getLong(KEY_PLAYBACK_POSITION, 0L);
-    }
-
-    private static String animeIdFor(Anime anime) {
-        return anime == null ? "unknown" : anime.getId();
     }
 
     private static class DbHelper extends SQLiteOpenHelper {

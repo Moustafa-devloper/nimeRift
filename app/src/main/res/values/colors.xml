@@ -1,15 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="bg_primary">#09090F</color>
-    <color name="bg_secondary">#151522</color>
-    <color name="surface">#201A2F</color>
-    <color name="surface_soft">#2A213D</color>
-    <color name="purple_accent">#A855F7</color>
-    <color name="purple_accent_soft">#D8B4FE</color>
-    <color name="text_primary">#F3F4F6</color>
-    <color name="text_secondary">#B9B4C6</color>
-    <color name="text_muted">#8C879A</color>
-    <color name="success">#34D399</color>
-    <color name="warning">#FBBF24</color>
-    <color name="error">#F87171</color>
-</resources>
+package com.animrift.app.utils;
+
+import com.animrift.app.network.SourceValidator;
+
+public final class UrlUtils {
+
+    private UrlUtils() {
+    }
+
+    public static boolean isLikelyPlayableUrl(String url) {
+        if (url == null || url.trim().isEmpty()) {
+            return false;
+        }
+
+        return SourceValidator.isValidHttpUrl(url)
+                || url.startsWith("content://")
+                || url.startsWith("file://");
+    }
+}

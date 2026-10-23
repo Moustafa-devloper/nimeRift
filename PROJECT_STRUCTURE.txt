@@ -1,66 +1,45 @@
-AnimeRift Project Structure
+# AnimeRift
 
-Root level
-- README.md
-  Project overview, feature summary, and description of the manual build process.
-- LIBRARIES.txt
-  Complete manual dependency catalog for libraries considered or recommended.
-- LICENSE
-  Existing repository license retained from the original project.
-- PROJECT_STRUCTURE.txt
-  This file; describes the purpose of each package and module.
-- docs/
-  Design notes, feature status, and build guidance.
+AnimeRift is a Java-only Android application source tree designed for low-end Android devices, Android 6.0+ compatibility, and Android 11 / 32-bit ARM support. The project intentionally avoids Gradle, Maven, Kotlin, Compose, and generated build files.
 
-Application module
-- app/
-  Android application source tree.
-- app/src/main/
-  Main Android source and resources.
-- app/src/main/AndroidManifest.xml
-  Application manifest with the main Activity, player Activity, permissions, and RTL support.
-- app/src/main/java/com/animrift/app/
-  Root package, containing GUI bootstrap and core app-level logic.
-- app/src/main/java/com/animrift/app/MainActivity.java
-  Home screen and main catalog UI.
-- app/src/main/java/com/animrift/app/model/
-  Plain Java entity classes such as anime metadata models.
-- app/src/main/java/com/animrift/app/repository/
-  Interfaces and concrete repository implementations for metadata access.
-- app/src/main/java/com/animrift/app/ui/
-  RecyclerView adapters, view holders, and UI code helpers.
-- app/src/main/java/com/animrift/app/player/
-  Dedicated player code and playback management.
-- app/src/main/java/com/animrift/app/storage/
-  SQLite and preferences helpers for favorites, history, and settings.
-- app/src/main/java/com/animrift/app/network/
-  URL validation and future source-provider logic.
-- app/src/main/java/com/animrift/app/utils/
-  Shared utility classes such as URL validators and runtime helpers.
+## Current implemented features
+- Java-only Android app structure under `com.animrift.app`
+- Home catalog screen with search and genre filtering
+- Local favorites and viewing history using SQLite + SharedPreferences
+- Native media playback using Android `VideoView`
+- Local file selection through the Storage Access Framework
+- Direct URL validation before attempting remote playback
+- Arabic-first strings with English fallback
+- Manual library documentation in `LIBRARIES.txt`
 
-Resources
-- app/src/main/res/
-  Android resources for layouts, styles, colors, drawables, strings, and XML config.
-- app/src/main/res/layout/
-  XML layout files for the catalog, player screen, and item cards.
-- app/src/main/res/drawable/
-  Vector/shape/drawable resources used in the dark anime design.
-- app/src/main/res/values/
-  English strings, colors, dimensions, and styles.
-- app/src/main/res/values-ar/
-  Arabic strings for RTL-first interface.
-- app/src/main/res/xml/
-  Optional XML configuration files, including support for Android resource configuration.
-- app/src/main/assets/
-  Reserved for local asset placeholders, sample metadata, or future app assets.
+## Not yet implemented
+- Production remote API integration with a real authorized anime source
+- Advanced subtitle rendering beyond basic local file support
+- Download manager UI for direct media downloads
+- Better poster art and richer catalog metadata
+- Full device/emulator validation in this environment
 
-Documentation folder
-- docs/FEATURE_STATUS.md
-  Lists what is implemented, partially complete, and still planned.
-- docs/BUILD_GUIDE.md
-  Honest instructions for building the project without generating Gradle files.
+## Source tree
+- `app/src/main/java/com/animrift/app/` — application package root
+- `app/src/main/res/` — XML layouts, styles, drawables, and values resources
+- `app/src/main/AndroidManifest.xml` — app manifest
+- `docs/` — build and feature notes
+- `LICENSE` — repository license
 
-Important notes
-- There are intentionally no Gradle build files, no `build.gradle`, and no Maven-based project metadata.
-- This repository is a source tree designed for Java/Android compatibility rather than a generated Android Studio Gradle project.
-- The architecture stays modular but intentionally avoids unnecessary abstraction. This keeps the code approachable for low-end devices and manual maintenance.
+## Manual setup
+1. Open the project in an Android Java-compatible IDE.
+2. Import the `app/src/main` tree as the Android app source root.
+3. Add the Android SDK platform and Java support packages required for Android 6.0+.
+4. Install any extra libraries manually only if the app is extended beyond the current framework-first implementation.
+5. Build with the Android SDK directly; do not generate Gradle files.
+
+## Build limitations
+- This repository is not a Gradle project and intentionally does not contain Gradle or Maven configuration.
+- The project should be built using an Android SDK workflow in a compatible IDE.
+- No claim of successful APK compilation is made unless a local Android SDK build is performed and verified on-device or in an emulator.
+
+## Next development steps
+- Add richer anime detail screens and navigation.
+- Improve URL validation and source-provider interfaces.
+- Add download progress UI when direct authorized downloads are supported.
+- Add a real source adapter after legal authorization and API review.

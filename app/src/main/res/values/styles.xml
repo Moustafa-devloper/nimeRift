@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.AnimeRift" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/purple_accent</item>
-        <item name="colorPrimaryDark">@color/bg_primary</item>
-        <item name="colorAccent">@color/purple_accent</item>
-        <item name="android:windowBackground">@color/bg_primary</item>
-        <item name="android:textColorPrimary">@color/text_primary</item>
-        <item name="android:textColorSecondary">@color/text_secondary</item>
-        <item name="android:statusBarColor">@color/bg_primary</item>
-        <item name="android:navigationBarColor">@color/bg_primary</item>
-    </style>
-</resources>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="#09090F"
+                android:endColor="#201A2F" />
+        </shape>
+    </item>
+</layer-list>

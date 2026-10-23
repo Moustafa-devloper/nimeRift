@@ -1,11 +1,36 @@
-package com.animrift.app.utils;
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.animrift.app"
+    android:installLocation="auto">
 
-public final class UrlUtils {
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" android:maxSdkVersion="33" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
 
-    private UrlUtils() {
-    }
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AnimeRift"
+        android:usesCleartextText="true">
 
-    public static boolean isLikelyPlayableUrl(String url) {
-        return url != null && !url.trim().isEmpty();
-    }
-}
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".player.VideoPlayerActivity"
+            android:exported="false"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+    </application>
+</manifest>

@@ -1,26 +1,26 @@
-# Feature Status
+# Feature status
 
-## Completed
-- Java-only Android project structure created under `app/src/main/java/com/animrift/app`
-- Arabic-first UI with English fallback and RTL-ready layout patterns
-- Home catalog with search, genre filtering, and sample anime entries
-- Local favorite toggling and history storage using SQLite and SharedPreferences
-- Native video playback support with local file selection and direct URL validation
-- Clear history action and remove-favorite behavior via list-item toggle
-- Documentation of dependencies and manual build limitations
+## Complete
+- Java-only app structure with package alignment under `com.animrift.app`
+- Manifest, activity wiring, and package consistency corrected
+- Home catalog screen with local sample anime data
+- Genre filtering and search
+- Favorites and history storage with SQLite + SharedPreferences
+- Native video playback support using Android VideoView
+- Arabic + English strings with RTL support in the app project layout
+- Dependency documentation in `LIBRARIES.txt`
 
 ## Partial
-- Advanced subtitle rendering is documented but not yet fully integrated in the app UI
-- Cover art placeholders and richer media metadata are scaffolded but not full remote API integration
-- Download manager integration is documented as a future-safe capability, not yet wired into UI
+- Advanced subtitle support is documented but not yet fully integrated
+- Download manager flow is planned rather than implemented
+- Real API source integration is intentionally deferred until authorized
 
 ## Planned
-- Source-provider API adapters for authorized metadata sources
-- Secure URL validation and error handling for remote streams
-- Download progress UI with Android `DownloadManager`
-- Full archive or library-based subtitle support for advanced formats
-- Low-memory optimization pass across all screens and adapters
-- Real API integration based on a legitimate source and user authorization
+- Full detail screen
+- More polished premium anime UI
+- Expand catalog data and better media metadata
+- Real source provider contracts
+- Additional device validation on Android 11 / ARM 32-bit hardware
 
 ## Important note
-This is a first working Java/XML source tree, not a claim of a verified built APK. The code is intentionally conservative and framework-first to support low-end Android devices.
+This project remains a source tree without a verified APK build in this environment.
