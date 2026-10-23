@@ -1,79 +1,36 @@
-AnimeRift manual dependency catalog
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.animrift.app"
+    android:installLocation="auto">
 
-This project purposely avoids unnecessary external libraries. The code uses Android framework APIs and AndroidX AppCompat support where required.
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" android:maxSdkVersion="33" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
 
-1) AndroidX AppCompat (required)
-- Library name: androidx.appcompat:appcompat
-- Purpose: Required for AppCompatActivity and compatible Android UI behavior.
-- Recommended version: 1.7.0
-- Official download page: https://developer.android.com/jetpack/androidx/releases/appcompat
-- Direct AAR: https://dl.google.com/android/maven2/androidx/appcompat/appcompat/1.7.0/appcompat-1.7.0.aar
-- Transitive dependencies: annotation, core, fragment, activity, appcompat-resources, drawables, arch-core, lifecycle, collection, customview, drawerlayout, savedstate, viewpager2, etc.
-- Minimum Android: API 23+ recommended
-- Java and Android 11: Yes
-- 32-bit ARM support: Yes, when the AAR is packaged in an APK targeting armeabi-v7a
-- AndroidX / SDK: Yes
-- Manual installation: Download the AAR, add it to the Android project libraries/classpath, and ensure the project references AndroidX.
-- Required or optional: Required for the current code path.
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AnimeRift"
+        android:usesCleartextText="true">
 
-2) AndroidX Core (required transitively)
-- Library name: androidx.core:core
-- Purpose: Runtime and utility support used by AndroidX components.
-- Recommended version: 1.13.1 or newer compatible with the project
-- Official download page: https://developer.android.com/jetpack/androidx/releases/core
-- Direct AAR: https://dl.google.com/android/maven2/androidx/core/core/1.13.1/core-1.13.1.aar
-- Transitive dependencies: annotations, collection, lifecycle-runtime, etc.
-- Minimum Android: API 23+
-- Java and Android 11: Yes
-- 32-bit ARM support: Yes
-- AndroidX / SDK: Yes
-- Manual installation: Install as part of the AndroidX dependency set.
-- Required or optional: Required transitively.
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-3) Optional advanced player library
-- Library name: com.google.android.exoplayer:exoplayer
-- Purpose: Advanced media playback when native VideoView is insufficient for a specific format.
-- Recommended version: 2.19.1
-- Official download page: https://github.com/google/ExoPlayer/releases
-- Direct AAR: https://repo1.maven.org/maven2/com/google/android/exoplayer/exoplayer/2.19.1/exoplayer-2.19.1.aar
-- Transitive dependencies: exoplayer-core, exoplayer-dash, exoplayer-hls, exoplayer-smoothstreaming, exoplayer-ui, etc. depending on configuration.
-- Minimum Android: API 23+ with AndroidX support
-- Java and Android 11: Yes
-- 32-bit ARM support: Yes, when built for the target architecture
-- AndroidX / SDK: Yes
-- Manual installation: Only add after confirming the stream format and legal access rights.
-- Required or optional: Optional, not required for the current working version.
-
-4) Optional network client
-- Library name: com.squareup.okhttp3:okhttp
-- Purpose: Remote source validation or HTTP requests in a future source-provider layer.
-- Recommended version: 4.12.0
-- Official download page: https://square.github.io/okhttp/
-- Direct JAR: https://repo1.maven.org/maven2/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar
-- Transitive dependencies: okio and Kotlin stdlib metadata depending on packaging; review carefully before integrating
-- Minimum Android: API 23+
-- Java and Android 11: Yes, but better reviewed for Java-native use and Android compatibility
-- 32-bit ARM support: Yes, if packaged correctly
-- AndroidX / SDK: No additional SDK requirement beyond Android platform tools
-- Manual installation: Download the JAR and add to the project manually.
-- Required or optional: Optional, not used by the current source.
-
-5) Optional metadata parser
-- Library name: com.google.code.gson:gson
-- Purpose: JSON parsing for future authorized anime metadata APIs.
-- Recommended version: 2.11.0
-- Official download page: https://github.com/google/gson/releases
-- Direct JAR: https://repo1.maven.org/maven2/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar
-- Transitive dependencies: None beyond the JAR itself
-- Minimum Android: API 23+
-- Java and Android 11: Yes
-- 32-bit ARM support: Yes
-- AndroidX / SDK: No
-- Manual installation: Add the JAR to the project library classpath manually.
-- Required or optional: Optional, not used by the current source.
-
-Important notes
-- The current code intentionally uses the Android framework first and avoids advanced dependencies unless absolutely necessary.
-- No library is auto-configured by this repository.
-- Any future library must be manually added and documented in this file before being used in production.
-- DRM-protected, paid, or unauthorized media content must never be downloaded or played without proper authorization.
+        <activity
+            android:name=".player.VideoPlayerActivity"
+            android:exported="false"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+    </application>
+</manifest>
