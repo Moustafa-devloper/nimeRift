@@ -1,0 +1,138 @@
+AnimeRift – Manual Dependency Catalog
+
+Status: This repository intentionally does not use Gradle or Maven. All third-party dependencies must be added manually, when needed, by downloading the correct JAR/AAR and placing them into an Android project’s libraries folder or adding them through Android Studio’s manual dependency workflow.
+
+1) AndroidX AppCompat
+   - Exact library name: androidx.appcompat:appcompat
+   - Purpose: Core support library for Activities, AppCompat themes, resources, and compatibility on Android 6.0+
+   - Compatible version: 1.7.0 (recommended for Android 11 support and Java compatibility)
+   - Official download page: https://developer.android.com/jetpack/androidx/releases/appcompat
+   - Direct AAR URL: https://dl.google.com/android/maven2/androidx/appcompat/appcompat/1.7.0/appcompat-1.7.0.aar
+   - Required transitive dependencies: annotation, collections, core, drawerlayout, fragment, activity, savedstate, lifecycle, arch-core, customview, viewpager2, appcompat-resources
+   - Java and Android 11: Yes
+   - armeabi-v7a: Yes, when the target device uses AndroidX-compatible APKs
+   - AndroidX / SDK required: Yes, AndroidX and Android SDK platform support
+   - Manual installation instructions: Download the AAR, add it to the Android project classpath or libs folder, and synchronize the project in Android Studio. Keep the app theme compatible with AppCompat.
+   - Optional or required: Required for standard Android app UI components and compatibility.
+
+2) AndroidX RecyclerView
+   - Exact library name: androidx.recyclerview:recyclerview
+   - Purpose: Flexible list handling for anime cards and catalog rendering
+   - Compatible version: 1.3.2 (stable and broadly compatible with Java projects)
+   - Official download page: https://developer.android.com/jetpack/androidx/releases/recyclerview
+   - Direct AAR URL: https://dl.google.com/android/maven2/androidx/recyclerview/recyclerview/1.3.2/recyclerview-1.3.2.aar
+   - Required transitive dependencies: annotation, collection, fragment, core, customview, viewpager2, legacy-support-core-ui
+   - Java and Android 11: Yes
+   - armeabi-v7a: Yes
+   - AndroidX / SDK required: Yes
+   - Manual installation instructions: Download the AAR and add to the app project libraries; ensure the module references the AndroidX libraries.
+   - Optional or required: Required for catalog list UI.
+
+3) AndroidX CardView
+   - Exact library name: androidx.cardview:cardview
+   - Purpose: Rounded card surfaces used by the anime catalog and detail surfaces
+   - Compatible version: 1.0.0
+   - Official download page: https://developer.android.com/jetpack/androidx/releases/cardview
+   - Direct AAR URL: https://dl.google.com/android/maven2/androidx/cardview/cardview/1.0.0/cardview-1.0.0.aar
+   - Required transitive dependencies: annotation, core, fragment, appcompat (indirectly)
+   - Java and Android 11: Yes
+   - armeabi-v7a: Yes
+   - AndroidX / SDK required: Yes
+   - Manual installation instructions: Add the AAR to the Android project and ensure the resource theme is active.
+   - Optional or required: Required for polished card styling.
+
+4) AndroidX ConstraintLayout (optional but recommended)
+   - Exact library name: androidx.constraintlayout:constraintlayout
+   - Purpose: Advanced XML layout composition where complex relative sizing is useful
+   - Compatible version: 2.1.4
+   - Official download page: https://developer.android.com/jetpack/androidx/releases/constraintlayout
+   - Direct AAR URL: https://dl.google.com/android/maven2/androidx/constraintlayout/constraintlayout/2.1.4/constraintlayout-2.1.4.aar
+   - Required transitive dependencies: core, annotation, constraintlayout-core
+   - Java and Android 11: Yes
+   - armeabi-v7a: Yes
+   - AndroidX / SDK required: Yes
+   - Manual installation instructions: Add AAR and ensure the Android project recognizes the AndroidX dependency.
+   - Optional or required: Optional.
+
+5) ExoPlayer (optional advanced player)
+   - Exact library name: com.google.android.exoplayer:exoplayer
+   - Purpose: Advanced playback support for additional container/formats such as adaptive streams, DTS/HLS, or more robust streaming behavior beyond the basic `VideoView` implementation
+   - Compatible version: 2.19.1
+   - Official download page: https://github.com/google/ExoPlayer/releases
+   - Direct AAR URL: https://repo1.maven.org/maven2/com/google/android/exoplayer/exoplayer/2.19.1/exoplayer-2.19.1.aar
+   - Required transitive dependencies: exoplayer-core, exoplayer-dash, exoplayer-hls, exoplayer-smoothstreaming, exoplayer-ui, exoplayer-rtsp, exoplayer-transformer, common libraries depending on selected module set
+   - Java and Android 11: Yes
+   - armeabi-v7a: Yes
+   - AndroidX / SDK required: Yes, AndroidX support required
+   - Manual installation instructions: Download the required AAR modules and include them in the project. Some features require the UI module and media modules. This is optional and not required for the default built-in player path.
+   - Optional or required: Optional advanced player dependency.
+
+6) OkHttp (optional network layer)
+   - Exact library name: com.squareup.okhttp3:okhttp
+   - Purpose: Safer HTTP client for checking stream accessibility, metadata requests, or remote source validation in a future source-provider implementation
+   - Compatible version: 4.12.0
+   - Official download page: https://square.github.io/okhttp/
+   - Direct JAR URL: https://repo1.maven.org/maven2/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar
+   - Required transitive dependencies: okio, kotlin-stdlib (not Java-only) if used with Kotlin; because this project is Java-only, use with caution and verify only if Java interop is acceptably configured
+   - Java and Android 11: Yes, but not ideal for a pure Java-only project due to Kotlin dependency in the modern release line
+   - armeabi-v7a: Yes, subject to API compatibility and Android packaging
+   - AndroidX / SDK required: No, but Android SDK is still required
+   - Manual installation instructions: Download the JAR and add it to the project’s libs or configure the Android Studio library path manually.
+   - Optional or required: Optional, not required for the current source tree.
+
+7) Gson (optional metadata parsing)
+   - Exact library name: com.google.code.gson:gson
+   - Purpose: JSON parsing for anime metadata APIs and source-provider responses
+   - Compatible version: 2.11.0
+   - Official download page: https://github.com/google/gson/releases
+   - Direct JAR URL: https://repo1.maven.org/maven2/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar
+   - Required transitive dependencies: None beyond runtime classpath
+   - Java and Android 11: Yes
+   - armeabi-v7a: Yes
+   - AndroidX / SDK required: No
+   - Manual installation instructions: Add the JAR to the app classpath or libs folder.
+   - Optional or required: Optional.
+
+8) Apache Commons IO (optional, only if network or file utilities become more advanced)
+   - Exact library name: commons-io:commons-io
+   - Purpose: File utility methods for temporary downloads, metadata temp files, and safe path handling
+   - Compatible version: 2.16.1
+   - Official download page: https://commons.apache.org/proper/commons-io/
+   - Direct JAR URL: https://repo1.maven.org/maven2/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar
+   - Required transitive dependencies: None
+   - Java and Android 11: Yes
+   - armeabi-v7a: Yes
+   - AndroidX / SDK required: No
+   - Manual installation instructions: Add the JAR to libs or compile path manually.
+   - Optional or required: Optional.
+
+9) Optional subtitle library (not required in the default implementation)
+   - Exact library name: SubtitleEdit or other external subtitle parser project (not a required library in this project)
+   - Purpose: More robust subtitle parsing for ASS/SSA, SRT, VTT, and advanced styling for anime subtitles
+   - Compatible version: Use the latest version published by the library maintainers and verify Android compatibility before integrating
+   - Official download page: https://github.com/SubtitleEdit/SubtitleEdit
+   - Direct JAR/AAR URL: Not guaranteed; many subtitle libraries are not shipped as a single Java-only Android library and may require direct source integration. This project does not require such a library for the current implementation.
+   - Required transitive dependencies: Varies by library and may include Android-specific JAR dependencies or non-Android Java packages.
+   - Java and Android 11: Depends on the selected library; not guaranteed.
+   - armeabi-v7a: Depends on the selected library; not guaranteed.
+   - AndroidX / SDK required: Depends on the selected library.
+   - Manual installation instructions: Only after confirming the project requirements and license terms do so manually.
+   - Optional or required: Optional; not required to support local SRT/VTT-style subtitle files in a limited manner.
+
+10) Core requirement: no third-party dependencies for the first working version
+   - Exact library name: Android framework only
+   - Purpose: Base functionality including `Activity`, `Intent`, `SQLiteOpenHelper`, `SharedPreferences`, `RecyclerView`, `VideoView`, `Storage Access Framework`, and native playback
+   - Compatible version: API 23+ support and Android 11 compatibility through framework APIs
+   - Official download page: https://developer.android.com/
+   - Direct JAR/AAR URL: Not applicable; framework APIs are built into Android
+   - Required transitive dependencies: None
+   - Java and Android 11: Yes
+   - armeabi-v7a: Yes, unless the app uses a library that is not built for 32-bit ARM
+   - AndroidX / SDK required: Android SDK platform support is required; AndroidX is recommended for UI components but not mandatory if built in a legacy project.
+   - Manual installation instructions: Use the Android SDK and Java-compatible IDE without creating Gradle or Maven files.
+   - Optional or required: Required.
+
+Notes:
+- This project is designed to function with the Android framework first and only add external libraries when absolutely necessary.
+- No library in this project is “assumed” to be available; all libraries are documented as manual dependencies and may require Android Studio configuration outside of Gradle.
+- Advanced DRM-protected streams must never be downloaded or replayed without explicit authorization and legal rights.

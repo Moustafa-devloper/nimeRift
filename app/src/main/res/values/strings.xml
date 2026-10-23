@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AnimeRift</string>
+    <string name="title_home">Home</string>
+    <string name="search_hint">Search anime</string>
+    <string name="genre_all">All</string>
+    <string name="genre_action">Action</string>
+    <string name="genre_drama">Drama</string>
+    <string name="genre_adventure">Adventure</string>
+    <string name="genre_comedy">Comedy</string>
+    <string name="genre_fantasy">Fantasy</string>
+    <string name="empty_state">No results found.</string>
+    <string name="offline_message">You are offline. Local data is still available.</string>
+    <string name="error_message">Something went wrong. Please try again.</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="open_video">Open video</string>
+    <string name="fullscreen">Fullscreen</string>
+    <string name="favorite">Favorite</string>
+    <string name="history">History</string>
+    <string name="search_hint_short">Search title…</string>
+    <string name="player_title">Player</string>
+</resources>

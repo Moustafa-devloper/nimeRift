@@ -1,0 +1,66 @@
+AnimeRift Project Structure
+
+Root level
+- README.md
+  Project overview, feature summary, and description of the manual build process.
+- LIBRARIES.txt
+  Complete manual dependency catalog for libraries considered or recommended.
+- LICENSE
+  Existing repository license retained from the original project.
+- PROJECT_STRUCTURE.txt
+  This file; describes the purpose of each package and module.
+- docs/
+  Design notes, feature status, and build guidance.
+
+Application module
+- app/
+  Android application source tree.
+- app/src/main/
+  Main Android source and resources.
+- app/src/main/AndroidManifest.xml
+  Application manifest with the main Activity, player Activity, permissions, and RTL support.
+- app/src/main/java/com/animrift/app/
+  Root package, containing GUI bootstrap and core app-level logic.
+- app/src/main/java/com/animrift/app/MainActivity.java
+  Home screen and main catalog UI.
+- app/src/main/java/com/animrift/app/model/
+  Plain Java entity classes such as anime metadata models.
+- app/src/main/java/com/animrift/app/repository/
+  Interfaces and concrete repository implementations for metadata access.
+- app/src/main/java/com/animrift/app/ui/
+  RecyclerView adapters, view holders, and UI code helpers.
+- app/src/main/java/com/animrift/app/player/
+  Dedicated player code and playback management.
+- app/src/main/java/com/animrift/app/storage/
+  SQLite and preferences helpers for favorites, history, and settings.
+- app/src/main/java/com/animrift/app/network/
+  URL validation and future source-provider logic.
+- app/src/main/java/com/animrift/app/utils/
+  Shared utility classes such as URL validators and runtime helpers.
+
+Resources
+- app/src/main/res/
+  Android resources for layouts, styles, colors, drawables, strings, and XML config.
+- app/src/main/res/layout/
+  XML layout files for the catalog, player screen, and item cards.
+- app/src/main/res/drawable/
+  Vector/shape/drawable resources used in the dark anime design.
+- app/src/main/res/values/
+  English strings, colors, dimensions, and styles.
+- app/src/main/res/values-ar/
+  Arabic strings for RTL-first interface.
+- app/src/main/res/xml/
+  Optional XML configuration files, including support for Android resource configuration.
+- app/src/main/assets/
+  Reserved for local asset placeholders, sample metadata, or future app assets.
+
+Documentation folder
+- docs/FEATURE_STATUS.md
+  Lists what is implemented, partially complete, and still planned.
+- docs/BUILD_GUIDE.md
+  Honest instructions for building the project without generating Gradle files.
+
+Important notes
+- There are intentionally no Gradle build files, no `build.gradle`, and no Maven-based project metadata.
+- This repository is a source tree designed for Java/Android compatibility rather than a generated Android Studio Gradle project.
+- The architecture stays modular but intentionally avoids unnecessary abstraction. This keeps the code approachable for low-end devices and manual maintenance.
