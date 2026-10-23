@@ -1,0 +1,11 @@
+package com.animrift.app.utils;
+
+public final class UrlUtils {
+
+    private UrlUtils() {
+    }
+
+    public static boolean isLikelyPlayableUrl(String url) {
+        return url != null && !url.trim().isEmpty();
+    }
+}

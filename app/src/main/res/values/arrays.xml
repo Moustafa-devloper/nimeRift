@@ -1,0 +1,41 @@
+# Build Guide (Manual Java / Android SDK Only)
+
+This repository intentionally does not contain Gradle or Maven build files. That means the application is designed to be integrated manually into an Android Java project using the Android SDK and a compatible Java IDE.
+
+## Requirements
+- Android SDK with Platform 23+ (Android 6.0) and Android 11 support available
+- Java JDK 8 or newer
+- Android Studio or another Java-compatible IDE that can open a manual Android project structure
+- A device or emulator running Android 6.0+ and, if needed, 32-bit ARM support
+
+## No Gradle workflow
+This project intentionally avoids:
+- `build.gradle`
+- `build.gradle.kts`
+- `settings.gradle`
+- `gradlew`
+- `gradle` wrapper directories
+- Maven config files
+
+## Manual setup approach
+1. Create a new Android project in Android Studio without using Gradle wrapper generation if your workflow allows it.
+2. Copy or import the `app/src/main` tree into the project’s `src/main` folder.
+3. Add the required Android resource directories if the IDE does not already create them.
+4. Set the package name to `com.animrift.app`.
+5. Ensure the manifest contains the two activities: `MainActivity` and `VideoPlayerActivity`.
+6. Add AndroidX AppCompat and other support libraries only if your project configuration requires them. This repository prefers the Android framework where possible.
+7. Compile the app using the Android SDK’s Java build tools or Android Studio’s project import flow.
+
+## Build limitations
+- This source tree is not proven to compile in the current environment.
+- The app uses Android framework APIs and standard Java classes, but building still depends on a valid local Android SDK setup.
+- Advanced libraries like ExoPlayer or subtitle parsers must be added manually only if legal and needed, and they should be documented in `LIBRARIES.txt` before integration.
+
+## Recommended validation checklist
+- Confirm `MainActivity.java` and `VideoPlayerActivity.java` are present under `com.animrift.app.*` packages.
+- Ensure every XML layout references real strings and colors.
+- Validate the app manifest and application ID.
+- Test on low-end Android 11 hardware and note any UI or memory issues before release.
+
+## Safety note
+Do not claim the app is production-ready or fully compiled without an actual local Android SDK build and device/emulator validation.

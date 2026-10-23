@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">أنيمي ريفت</string>
-    <string name="title_home">الرئيسية</string>
-    <string name="search_hint">ابحث عن الأنمي</string>
-    <string name="genre_all">الكل</string>
-    <string name="genre_action">حركة</string>
-    <string name="genre_drama">دراما</string>
-    <string name="genre_adventure">مغامرة</string>
-    <string name="genre_comedy">كوميديا</string>
-    <string name="genre_fantasy">خيال</string>
-    <string name="empty_state">لا توجد نتائج.</string>
-    <string name="offline_message">أنت غير متصل بالإنترنت. البيانات المحلية ما زالت متاحة.</string>
-    <string name="error_message">حدث خطأ. حاول مرة أخرى.</string>
-    <string name="play">تشغيل</string>
-    <string name="pause">إيقاف</string>
-    <string name="open_video">فتح ملف فيديو</string>
-    <string name="fullscreen">ملء الشاشة</string>
-    <string name="favorite">المفضلة</string>
-    <string name="history">السجل</string>
-    <string name="search_hint_short">ابحث عن العنوان…</string>
-    <string name="player_title">المشغل</string>
+    <string name="app_name">AnimeRift</string>
+    <string name="title_home">Home</string>
+    <string name="search_hint">Search anime</string>
+    <string name="search">Search</string>
+    <string name="favorites">Favorites</string>
+    <string name="clear_history">Clear history</string>
+    <string name="genre_all">All</string>
+    <string name="genre_action">Action</string>
+    <string name="genre_drama">Drama</string>
+    <string name="genre_adventure">Adventure</string>
+    <string name="genre_comedy">Comedy</string>
+    <string name="genre_fantasy">Fantasy</string>
+    <string name="empty_state">No results found.</string>
+    <string name="offline_message">You are offline. Local data is still available.</string>
+    <string name="error_message">Something went wrong. Please try again.</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="open_video">Open video</string>
+    <string name="fullscreen">Fullscreen</string>
+    <string name="favorite">Favorite</string>
+    <string name="history">History</string>
+    <string name="search_hint_short">Search title…</string>
+    <string name="player_title">Player</string>
+    <string name="catalog_status">%1$d anime available</string>
+    <string name="history_cleared">History cleared.</string>
+    <string name="no_valid_url">No valid direct URL was provided.</string>
+    <string name="video_error">Unable to play this video.</string>
+
+    <string-array name="genre_array">
+        <item>@string/genre_all</item>
+        <item>@string/genre_action</item>
+        <item>@string/genre_drama</item>
+        <item>@string/genre_adventure</item>
+        <item>@string/genre_comedy</item>
+        <item>@string/genre_fantasy</item>
+    </string-array>
 </resources>
